@@ -11,8 +11,8 @@ import com.great_chat.general.ChatMessage;
 @Controller
 public class ChatController {
 
-	@MessageMapping("/chat.sendMessage")
-	@SendTo("/topic/public") //which topic/queue
+	@MessageMapping("/chat.sendMessage") // if a message was send to this path, the method is called
+	@SendTo("/topic/public") // Topic / Queue; send the message to here, the return value is broadcast to all subscribers
 	public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
 		return chatMessage;
 	}
